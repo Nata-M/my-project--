@@ -1,0 +1,74 @@
+.content {
+    width: 70%;
+}
+#content-users {
+    width: 100%;
+    height: 600px;
+}
+#content-users h1 {
+    text-align: center;
+    color: rgb(49, 49, 104);
+}
+
+#btn {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+#mybtn {
+    width: 35%;
+    cursor: pointer; 
+    padding: 10px;
+    margin-right: 20%;
+    margin-left: 5%;
+}
+#mysearch {
+    width: 35%;
+}
+.input-style {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+
+}
+
+.addbutton {
+    width: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+.add-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#users-list {
+    width: 100%;
+    /* height: 30px; */
+    color: rgb(13, 12, 54);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    /* display: none; */
+}
+#users-list li {
+    border: 1px solid rgb(173, 166, 166);
+    background-color: rgb(217, 217, 243);
+    list-style-type: none;
+    margin: 2px;
+    height: 30px;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#users-list li:hover {
+    background-color: rgb(76, 76, 122);
+    transition-duration: 0.7s;
+}
+
+.close {
+    margin-left: auto;
+}
