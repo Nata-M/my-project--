@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import App from '../App';
-import Myelement from './AddUser'
-import CreateUser from './CreateUser'
-import Mysearch from './Search';
+import CreateCar from './CreateCar'
+// import Myelement from './AddUser'
+// import CreateUser from './CreateUser'
+// import Mysearch from './Search';
 
 // const FunctionElement = function AddFunction () {
 //     console.log('ok');
@@ -22,7 +23,7 @@ import Mysearch from './Search';
 
 
 
-     function AddInput() {
+     function AddCarInput() {
             let mybtn = document.getElementById('mybtn');
             let btn = document.getElementById('btn');
             let mysearch = document.getElementById('mysearch');
@@ -42,25 +43,25 @@ import Mysearch from './Search';
             input.name = 'firstname';
             input.className = 'input-style';
             input.id = 'input1';
-            input.placeholder = 'სახელი';
+            input.placeholder = 'მარკა';
             input2.type = 'text';
             input2.name = 'lastname';
-            input2.placeholder = 'გვარი';
+            input2.placeholder = 'მოდელი';
             input2.className = 'input-style';
             input2.id = 'input2';
-            input3.type = 'number';
+            input3.type = 'text';
             input3.name = 'ID';
-            input3.placeholder = 'ID';
+            input3.placeholder = 'VIN';
             input3.className = 'input-style';
             input3.id = 'input3';
             input4.type = 'text';
             input4.name = 'name';
-            input4.placeholder = 'მამის სახელი';
+            input4.placeholder = 'სახელმწიფო ნომერი';
             input4.className = 'input-style';
             input4.id = 'input4';
-            input5.type = 'date';
+            input5.type = 'text';
             input5.name = 'birthdate';
-            input5.placeholder = 'დაბადების თარიღი';
+            input5.placeholder = 'ფერი';
             input5.className = 'input-style';
             input5.id = 'input5';
             mydiv.appendChild(input);
@@ -76,7 +77,7 @@ import Mysearch from './Search';
             mysearch.style.display = 'none';
         }
         remove();
-        CreateUser();
+        CreateCar();
         }
 
-export default AddInput
+export default AddCarInput

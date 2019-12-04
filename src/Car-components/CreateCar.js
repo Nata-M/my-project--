@@ -1,30 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import App from '../App';
-import Myelement from './AddUser'
-import AddUsers from './AddUsers'
 import '../css/content.css';
-import AddInput from './AddUsers'
-import UsersList from './UsersList';
+import AddCarInput from './AddCarInput'
+import CarsList from './CarsLIst';
 
 
-let notes = [
-    'ლევან აბაშიძე - 35001164738 - მიხეილ - 1997-08-14',
-    'მარიამ მჭედლიშვილი - 15001664999 - თემური - 1993-07-07',
-    'ზურაბ დვალი - 15004638292 - გიორგი - 1994-02-11 ',
-    'სანდრო საბახტარაშვილი - 35004653392 - მამუკა - 1984-05-05',
-    'დავით თოდაძე - 15004657679 - ალექსანდრე - 1988-06-19',
-    'დიანა ონიანი - 35004563721 - ვიქტორი - 1992-04-20'
+let carnotes = [
+    'ფორდი მუსტანგი - ZA9RU31B9XLA12338 - JJ-712-AA - წითელი', 
+    'მერსედეს S100 - 2S3TD52V3Y6103456 - BG-293-AG - თეთრი',
+    'ჰონდა CRV - 1N4AB41D7VC757660 - SF-102-FF - ლურჯი ',
+    'ჰიუნდაი ელანტრა - 1D7HA18D44J218509 - QQ-050-QQ - შავი',
+    'ტოიოტა პრიუსი - JH4KA4540JC050162 - MM-505-MM - შავი',
+    'კია სპორტიჯი - 1FV3EFAC7TL676933 - GG-444-TT - თეთრი'
 ]
 
-function CreateUser() {
+function CreateCar() {
     let mybutton = document.getElementById('add-btn');
     const storage = window.localStorage;
-    const notesStr = storage.getItem('notes');
+    const notesStr = storage.getItem('carnotes');
     if (!notesStr) {
-    storage.setItem('notes', JSON.stringify(notes));}
-    else {notes = JSON.parse(notesStr);}
-    for (let note of notes) {
+    storage.setItem('carnotes', JSON.stringify(carnotes));}
+    else {carnotes = JSON.parse(notesStr);}
+    for (let note of carnotes) {
         addNewNote(note);
     }
 
@@ -38,8 +36,8 @@ function CreateUser() {
             let name = input.concat(' ', input2);
             let inputs = [name, input3, input4, input5];
             inputs = inputs.join(' - ');
-            notes.push(inputs);
-            storage.setItem('notes', JSON.stringify(notes));
+            carnotes.push(inputs);
+            storage.setItem('carnotes', JSON.stringify(carnotes));
             addNewNote(inputs);
             document.getElementsByClassName('input-style').value = "";
     }
@@ -53,7 +51,6 @@ function CreateUser() {
                 let edit = document.createElement("span");
                 edit.appendChild(document.createTextNode("\uD83D\uDD89"));
                 edit.className = 'edit';
-                edit.id = 'edit';
                 del.appendChild(document.createTextNode('\u00D7'));
                 // \u00D7
                 del.className = "close";
@@ -66,19 +63,20 @@ function CreateUser() {
         closeBtns[i].onclick = function () {
             let div = closeBtns[i].parentElement;
             div.style.display = "none";
-            notes.splice(i, 1);
-            storage.setItem('notes', JSON.stringify(notes));
+            carnotes.splice(i, 1);
+            storage.setItem('carnotes', JSON.stringify(carnotes));
         }}
         for (let i = 0; i < editBtns.length; ++i) {
             editBtns[i].onclick = function () {
-                console.log('ok')
-                // let div = editBtns[i].parentElement;
-                // let delt = document.getElementById('add-display')
-                // delt.style.display = 'none';
-                // AddInp();
-                // storage.setItem('notes', JSON.stringify(notes));
+                let div = editBtns[i].parentElement;
+
+                AddNewInput();
+                // div.style.display = "none";
+                // notes.splice(i, 1);
+                storage.setItem('carnotes', JSON.stringify(carnotes));
             }}
         };
+
     
     mybutton.addEventListener('click', function() {
         let myinput = document.getElementById('input1');
@@ -86,13 +84,10 @@ function CreateUser() {
         let idNumber = document.getElementById('input3');
         let fatherName = document.getElementById('input4');
         let birthDate = document.getElementById('input5');
-        if (myinput.value.length == 0) {
-            myinput.style.borderColor = 'red'}
-        else if (inpLastname.value.length == 0) {
-            inpLastname.style.borderColor = 'red'
-        }
-        else if (idNumber.value.length == 0) {
-            idNumber.style.borderColor = 'red'
+        if (idNumber.value.length == 0) {
+            idNumber.style.borderColor = 'red'}
+        else if (fatherName.value.length == 0) {
+            fatherName.style.borderColor = 'red'
         }
         else {
             myinput.style.borderColor = "";
@@ -117,7 +112,7 @@ function AddNewInput() {
     mydiv.className = 'add-display';
     mydiv.id = 'add-display';
     let input = document.createElement("input");
-    // input.value = JSON.parse(localStorage.getItem('notes')[0])
+    input.value = JSON.parse(localStorage.getItem('notes')[0])
     let input2 = document.createElement('input');
     let input3 = document.createElement('input');
     let input4 = document.createElement('input');
@@ -130,25 +125,25 @@ function AddNewInput() {
     input.name = 'firstname';
     input.className = 'input-style';
     input.id = 'input1';
-    input.placeholder = 'სახელი';
+    input.placeholder = 'მარკა';
     input2.type = 'text';
     input2.name = 'lastname';
-    input2.placeholder = 'გვარი';
+    input2.placeholder = 'მოდელი';
     input2.className = 'input-style';
     input2.id = 'input2';
-    input3.type = 'number';
+    input3.type = 'text';
     input3.name = 'ID';
-    input3.placeholder = 'ID';
+    input3.placeholder = 'VIN';
     input3.className = 'input-style';
     input3.id = 'input3';
     input4.type = 'text';
     input4.name = 'name';
-    input4.placeholder = 'მამის სახელი';
+    input4.placeholder = 'სახელმწიფო ნომერი';
     input4.className = 'input-style';
     input4.id = 'input4';
-    input5.type = 'date';
+    input5.type = 'text';
     input5.name = 'birthdate';
-    input5.placeholder = 'დაბადების თარიღი';
+    input5.placeholder = 'ფერი';
     input5.className = 'input-style';
     input5.id = 'input5';
     mydiv.appendChild(input);
@@ -163,6 +158,6 @@ function AddNewInput() {
     mysearch.style.display = 'none';
 }
 remove();
-CreateUser();
+CreateCar();
 }
-export default CreateUser
+export default CreateCar

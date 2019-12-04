@@ -4,7 +4,7 @@ import Users from '../components/Users'
 
 function Content() {
     return (
-        <div className='content'>
+        <div className='content' id='content'>
             <Users />
         </div>
     )

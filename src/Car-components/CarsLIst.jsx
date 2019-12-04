@@ -1,9 +1,9 @@
 import React from 'react'
-import '../css/content.css'
+import '../css/content.css';
 
 // const userdata = userData.map(item => <UsersList user={item}/>)
 
-class UsersList extends React.Component {
+class CarsList extends React.Component {
     render() {
     return (
         <div id='users-list'>
@@ -12,4 +12,4 @@ class UsersList extends React.Component {
         </div>
         )}
 }
-export default UsersList
+export default CarsList

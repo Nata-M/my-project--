@@ -6,7 +6,7 @@ import UsersList from './UsersList'
 function Users() {
     return (
         <div id='content-users'>
-            <h1>მომხმარებელთა ბაზა</h1>
+            <h1 >მომხმარებელთა ბაზა</h1>
             <AddUser />
             <UsersList />
         </div>
